@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Paper, Typography, Button, Box } from '@mui/material';
 
-const DisplayMessage = ( { message =""   }) => {
+const DisplayMessage = ( { message =""  ,handleRestPage  }) => {
   return (
 
     <Box
@@ -18,6 +18,12 @@ const DisplayMessage = ( { message =""   }) => {
         <Typography variant="h4" gutterBottom>
           {message}
         </Typography>
+
+        <Button variant="contained" color="secondary"  sx={{
+        mt : 20,
+    }} onClick={( e)=> handleRestPage() } >
+            Back
+          </Button>
     </Box>
   );
 };

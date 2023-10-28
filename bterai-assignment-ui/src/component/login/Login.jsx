@@ -48,20 +48,29 @@ const Login =  () => {
     // console.log(response);
     if (response) {
       try {
-        let { name = "" } = await post(email, "register");
+        let { name = "" , message="" } = await post(email, "register");
         if (name != "") {
           setMessage(`Welcome to Bterai ${name}`);
           setLogged(true);
         } else {
-          setEmail("");
-          setNewUser(false);
+          alert(message);
+          handleRestPage();
         }
       } catch (error) {
         alert(error);
       }
     } else {
+      handleRestPage();
     }
   };
+
+  const handleRestPage =  () =>{
+    setEmail("");
+    setIsEmailValid(true);
+    setNewUser(false);
+    setLogged(false);
+    setMessage("");
+  }
 
   return (
     <div>
@@ -80,7 +89,7 @@ const Login =  () => {
         />
         <Grid item xs={12} sm={8} md={4}>
           {logged ? 
-            <DisplayMessage message={message} />
+            <DisplayMessage message={message} handleRestPage={handleRestPage} />
           : 
             <div>
               {!newUser ? (
