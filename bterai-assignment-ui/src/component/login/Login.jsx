@@ -49,7 +49,7 @@ const Login =  () => {
     if (response) {
       try {
         let { name = "" , message="" } = await post(email, "register");
-        if (name != "") {
+        if (name !== "") {
           setMessage(`Welcome to Bterai ${name}`);
           setLogged(true);
         } else {

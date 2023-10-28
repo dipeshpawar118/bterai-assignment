@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Paper, Typography, Button, Box } from '@mui/material';
+import {  Typography, Button, Box } from '@mui/material';
 
 const DisplayMessage = ( { message =""  ,handleRestPage  }) => {
   return (
